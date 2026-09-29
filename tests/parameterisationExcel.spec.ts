@@ -25,6 +25,9 @@ const workbook=XLSX.readFile(excelPath);        //this returns a workbook of the
 const sheetNames=workbook.SheetNames[0];            //this returns all the sheet names from the sheets
 const workSheet=workbook.Sheets[sheetNames];    //this returns the exact worksheet
 
+//just to see which sheet it is reading - Sheet1
+console.log("Sheet Names: ",sheetNames)
+
 //convert worksheet into JSON
 const loginData:any=XLSX.utils.sheet_to_json(workSheet)
 
