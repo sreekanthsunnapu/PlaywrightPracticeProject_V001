@@ -41,13 +41,33 @@ export default defineConfig({
   // maxFailures:process.env.CI?10:undefined,   //added by sreekanth
 
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
 
   //workers on local workspace, this value cannot be zero
   // workers:3   ,  //added by sreekanth
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  // reporter: 'html',    //default setting
+
+  //below reporter opens report always, stores index.html in html-reports folder
+  //reporter:[['html',{open:'always',outputFolder:'test-reports'}]],    //added by sreekanth
+  //reporter:[['list']],    //added by sreekanth  //list report open open anywhere, simply prints on the console
+ /* reporter:[['list'],     //added by sreekanth
+           ['line'],
+           ['dot'],
+           ['junit',{outputFile:'test-reports/results.xml'}],
+           ['junit',{outputFile:'test-reports/results.json'}],
+           ['allure-playwright']],   //added by sreekanth
+*/
+  //adding allure-reporter
+  // reporter:[["allure-playwright"],['html']],     //added by sreekanth
+  
+  //adding a custom reporter - you can also mention this at CLI
+  // reporter:'./my-custom-reporter.ts',   //added by sreekanth
+  
+  //configure reporter for CI environment
+  // reporter:process.env.CI?[['allure-playwright'],['html']]:['html'],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     //to capture screenshot - applicable to all the tests (on, off, on-first-failure, only-on-failure)
@@ -55,7 +75,7 @@ export default defineConfig({
     
     //to record a video, off, on, retain-on-failure,on-first-retry,etc
     //keep this commented, to save memory, also not to reduce performance
-    video:'retain-on-failure',    //added by sreekanth
+    //video:'retain-on-failure',    //added by sreekanth
 
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
@@ -69,8 +89,9 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome']},  
       // fullyParallel:true,    //added by sreekanth
+      //use: { ...devices['Desktop Chrome'],video:'on'},  //in browsers also we can configure video capture option
     },
 
     // {

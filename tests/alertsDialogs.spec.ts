@@ -109,11 +109,23 @@ test("prompt dialog",async({page})=>{
    await expect(page.locator('#demo')).toHaveText("Hello Send Value to the Prompt! How are you today?")
 })
 
-test.only("One-Time Handling dialog",async({page})=>{
+test("One-Time Handling dialog",async({page})=>{
 
    await page.goto('https://testautomationpractice.blogspot.com/')
 
    page.once('dialog',(dialog)=>{dialog.accept()})
   
+   await page.locator('#alertBtn').click();
+})
+
+test("Handling dialog with async/await with .catch",async({page})=>{
+
+   await page.goto('https://testautomationpractice.blogspot.com/')
+
+   page.once('dialog', async(dialog)=>{
+      await dialog.dismiss().catch((error)=>{
+         console.log("unable to dismiss the dialog", error);
+      });
+   })
    await page.locator('#alertBtn').click();
 })
