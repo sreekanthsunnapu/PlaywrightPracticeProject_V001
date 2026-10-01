@@ -30,7 +30,7 @@ async function selectDate(targetYear:string, targetMonth:string, targetDate:stri
     // await page.waitForTimeout(2000)
 }
 
-test.only("JQuery Date Picker with Function", async({page})=>{
+test("JQuery Date Picker with Function", async({page})=>{
     await page.goto('https://testautomationpractice.blogspot.com/')
 
     await expect(page.locator('#datepicker')).toBeVisible();

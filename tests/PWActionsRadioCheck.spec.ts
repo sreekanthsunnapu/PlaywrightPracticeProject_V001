@@ -37,7 +37,7 @@ test("Radio buttons Actions Demo", async ({ page }) => {
     await expect(maleRadio).toBeChecked();  //prefer to use: here we are not comparing, making a validation in single step 
 });
 
-test.only("Check Boxes Actions Demo", async ({ page }) => {
+test("Check Boxes Actions Demo", async ({ page }) => {
     await page.goto("https://testautomationpractice.blogspot.com/");
 
     // *** Select a Single Checkbox*** 

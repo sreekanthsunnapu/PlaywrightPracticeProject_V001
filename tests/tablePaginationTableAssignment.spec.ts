@@ -124,7 +124,7 @@ test("Flight Ticket Booking", async({page})=>{
     // console.log("sortedFares3: ",sortedFares3)
 })
 
-test.only(" blazedemo Flight Ticket Booking", async({page})=>{
+test(" blazedemo Flight Ticket Booking", async({page})=>{
     await page.goto('https://www.blazedemo.com/')
 
     await expect(page.getByRole('heading', {name:/Welcome to the Simple Travel Agency/i})).toBeVisible();

@@ -40,7 +40,7 @@ test("iframes Demo",async({page})=>{
     await page.waitForTimeout(3000)
 })
 
-test.only("inner/child frames Demo",async({page})=>{
+test("inner/child frames Demo",async({page})=>{
     await page.goto('https://ui.vision/demo/webtest/frames/');
 
     const frame3:Frame|null= page.frame({url:'https://ui.vision/demo/webtest/frames/frame_3'});       //retruns Frame|null

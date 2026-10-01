@@ -153,7 +153,7 @@ test("Verify Duplicates in Dropdown", async ({ page }) => {
 
 });
 
-test.only("Assignment - www.bstackdemo.com", async ({ page }) => {
+test("Assignment - www.bstackdemo.com", async ({ page }) => {
      await page.goto('https://www.bstackdemo.com/');
  
     // await expect(page.locator("//span[contains(text(),'OnePlus')]")).toBeVisible();

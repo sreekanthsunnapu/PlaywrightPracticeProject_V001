@@ -40,7 +40,7 @@ test("Auto Suggest DropDowns",async ({page})=>{
     }
 })
 
-test.only("Flipkart Auto Suggest Dropdown", async ({page})=>{
+test("Flipkart Auto Suggest Dropdown", async ({page})=>{
     
     await page.goto('https://www.flipkart.com/');
 

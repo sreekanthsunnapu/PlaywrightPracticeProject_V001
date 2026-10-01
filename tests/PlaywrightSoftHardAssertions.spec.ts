@@ -64,7 +64,7 @@ test("Soft & Slow Assertions with expect.configure",async({page})=>{
 
 })
 
-test.only("expect.poll, expect.toPass",async({page})=>{
+test("expect.poll, expect.toPass",async({page})=>{
 
     //before running this test, goto---> cmd prompt> cd C:\Postman Practice\api >json-server Students.json 
    // our testing API is up and running, now send the HTTPRequest

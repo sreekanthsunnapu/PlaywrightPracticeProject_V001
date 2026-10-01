@@ -65,7 +65,7 @@ test("Here we are not passing any fixture -->",async({})=>{
 
 })
 
-test.only("We can create any number of pages associated with a context",async({})=>{
+test("We can create any number of pages associated with a context",async({})=>{
 
     console.log("here we are not passing any fixture")
     

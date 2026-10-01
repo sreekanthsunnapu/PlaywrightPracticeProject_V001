@@ -63,7 +63,7 @@ test("Filter the rows and check the row count",async({page})=>{
     await page.waitForTimeout(3000)
 });
 
-test.only("Search for sepcific data in a table",async({page})=>{
+test("Search for sepcific data in a table",async({page})=>{
     await page.goto("https://datatables.net/examples/core/basic_init/zero_configuration.html");
 
     const searchBox:Locator=page.locator("#dt-search-0");
