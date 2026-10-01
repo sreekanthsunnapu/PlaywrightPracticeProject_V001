@@ -48,7 +48,9 @@ export default defineConfig({
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',    //default setting
-  reporter: process.env.CI ? 'allure-playwright':'html',
+  // reporter: process.env.CI ? 'allure-playwright':'html',
+
+  reporter: process.env.CI ? [['allure-playwright'], ['list']] : [['html', { open: 'never' }]],
   //below reporter opens report always, stores index.html in html-reports folder
   //reporter:[['html',{open:'always',outputFolder:'test-reports'}]],    //added by sreekanth
   //reporter:[['list']],    //added by sreekanth  //list report open open anywhere, simply prints on the console
